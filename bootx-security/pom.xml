@@ -9,24 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bootx-system</artifactId>
+    <artifactId>bootx-security</artifactId>
     <dependencies>
         <dependency>
             <groupId>cn.bootx</groupId>
             <artifactId>bootx-common</artifactId>
             <version>0.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.bootx</groupId>
-            <artifactId>bootx-api</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.bootx</groupId>
-            <artifactId>bootx-security</artifactId>
-            <version>0.0.1</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
 </project>

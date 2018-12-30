@@ -20,7 +20,7 @@ import ${package}.service.${className}Service;
 import com.bootdo.common.utils.PageRows;
 import com.bootdo.system.utils.PageQuery;
 import com.bootdo.system.utils.PageUtils;
-import com.bootdo.common.utils.Query;
+import com.bootdo.Query;
 import com.bootdo.common.utils.R;
 
 /**

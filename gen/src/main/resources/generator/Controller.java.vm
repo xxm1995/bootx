@@ -1,0 +1,162 @@
+package ${package}.controller;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ${package}.entity.${className}DO;
+import ${package}.service.${className}Service;
+import com.bootdo.common.utils.PageRows;
+import com.bootdo.system.utils.PageQuery;
+import com.bootdo.system.utils.PageUtils;
+import com.bootdo.common.utils.Query;
+import com.bootdo.common.utils.R;
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @date ${datetime}
+ * @version V1.0
+ */
+
+@RestController
+@RequestMapping("/${classname}")
+public class ${className}Controller {
+    private static final Logger logger = LoggerFactory.getLogger( ${className}Controller.class );
+    @Autowired
+    private ${className}Service ${classname}Service;
+
+    /**
+    * 跳转列表页
+    */
+    @GetMapping()
+##    @RequiresPermissions("${pathName}:${classname}:${classname}")
+    ModelAndView ${classname}(){
+        return new ModelAndView("cb/${classname}/list");
+    }
+
+    /**
+    * 跳转添加页面
+    * @return
+    */
+    @GetMapping("/add")
+##    @RequiresPermissions("${pathName}:${classname}:add")
+    ModelAndView add(){
+        return new ModelAndView("cb/${classname}/add");
+    }
+
+    /**
+    * 跳转编辑页面
+    * @return
+    */
+    @GetMapping("/edit/{${pk.attrname}}")
+##    @RequiresPermissions("${pathName}:${classname}:edit")
+    ModelAndView edit(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname},Model model){
+            ${className}DO ${classname} = ${classname}Service.getById(${pk.attrname});
+        model.addAttribute("${classname}", ${classname});
+        return new ModelAndView("cb/${classname}/edit");
+    }
+
+    /**
+    * 列表查询
+    * @param page
+    * @return R
+    */
+    @ResponseBody
+    @PostMapping("/list")
+##  @RequiresPermissions("${pathName}:${classname}:${classname}")
+    public PageRows list(@RequestBody PageQuery<${className}DO> page){
+        QueryWrapper<${className}DO> w = new QueryWrapper<>();
+        ${classname}Service.page( page, w );
+        return new PageRows( page );
+    }
+
+    /**
+    * 根据主键查询一条数据
+	*/
+    @GetMapping("/get")
+    public R get(${pk.attrType} ${pk.attrname}){
+        try {
+                ${className}DO ${classname} = ${classname}Service.getById(${pk.attrname});
+            return R.ok(${classname});
+        } catch (Exception e){
+            logger.error( "/get方法错误", e );
+        }
+        return R.error();
+    }
+
+    /**
+     * 保存
+     */
+    @PostMapping("/save")
+    public R save(${className}DO ${classname}){
+        try {
+            if(${classname}Service.save(${classname})){
+                return R.ok();
+            }
+        } catch (Exception e){
+            logger.error( "/save方法错误", e );
+        }
+        return R.error();
+    }
+
+    /**
+     * 修改
+     */
+    @RequestMapping("/update")
+    public R update(${className}DO ${classname}){
+        try {
+            if (${classname}Service.updateById( ${classname} )) {
+                return R.ok();
+            }
+        } catch (Exception e){
+            logger.error( "/update方法错误", e );
+        }
+        return R.error();
+    }
+
+    /**
+     * 删除一条数据
+     */
+    @PostMapping( "/remove")
+    public R remove( ${pk.attrType} ${pk.attrname}){
+        try {
+            if(${classname}Service.removeById(${pk.attrname})){
+                return R.ok();
+            }
+            return R.error();
+        } catch (Exception e){
+            logger.error( "/remove方法错误", e );
+        }
+        return R.error();
+
+    }
+
+    /**
+     * 删除多条数据
+     */
+    @PostMapping( "/batchRemove")
+    public R remove(@RequestParam("ids[]") ${pk.attrType}[] ${pk.attrname}s){
+        try {
+            if(${classname}Service.removeByIds(Arrays.asList(${pk.attrname}s))){
+                return R.ok();
+            }
+            return R.error();
+        } catch (Exception e){
+            logger.error( "/batchRemove方法错误", e );
+        }
+        return R.error();
+    }
+
+}

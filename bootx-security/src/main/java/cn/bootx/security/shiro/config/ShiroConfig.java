@@ -18,7 +18,6 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.*;
@@ -28,7 +27,7 @@ import java.util.*;
 /**
  * @author bootdo 1992lcg@163.com
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
     @Value("${spring.redis.host}")
     private String host;

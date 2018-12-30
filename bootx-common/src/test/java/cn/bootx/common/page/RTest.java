@@ -47,7 +47,7 @@ public class RTest {
     @Test
     public void putObj() {
         FileDO fileDO = new FileDO();
-        fileDO.setId( 65L );
+        fileDO.setId( "hello" );
         fileDO.setUrl( "www.bootx.cn" );
         System.out.println( R.OK().putObj( null ) );
         System.out.println( R.OK().putObj( fileDO ) );

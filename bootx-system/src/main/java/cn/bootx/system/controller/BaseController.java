@@ -10,8 +10,8 @@ public class BaseController {
 		return ShiroUtils.getUser();
 	}
 
-	public Long getUserId() {
-		return getUser().getUserId();
+	public String getUserId() {
+		return getUser().getId();
 	}
 
 	public String getUsername() {

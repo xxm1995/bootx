@@ -31,8 +31,8 @@ public class ShiroUtils {
      * 获取用户id
      * @return Long
      */
-    public static Long getUserId() {
-        return getUser().getUserId();
+    public static String getUserId() {
+        return getUser().getId();
     }
 
     /**

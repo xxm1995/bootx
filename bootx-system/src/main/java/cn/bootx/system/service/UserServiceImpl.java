@@ -1,11 +1,12 @@
 package cn.bootx.system.service;
 
 import cn.bootx.api.service.UserService;
+import cn.bootx.common.domain.UserDO;
+import cn.bootx.system.dao.UserDao;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserDao, UserDO> implements UserService<UserDO> {
 
 }

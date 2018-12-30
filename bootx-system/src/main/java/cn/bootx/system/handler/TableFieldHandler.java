@@ -23,27 +23,21 @@ public class TableFieldHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         Date date = new Date(  );
         UserDO user = ShiroUtils.getUser();
-        String updateBy = user!=null?user.getName():"";
-        Long updateById = user!=null?user.getUserId():-1;
-
-        this.setFieldValByName("userIdCreate", updateById, metaObject);
-        this.setFieldValByName("gmtCreate", date, metaObject);
-        this.setFieldValByName("gmtModified", date, metaObject);
-
+        String userId = user!=null?user.getId():"";
+        // 创建时自动填充
         this.setFieldValByName("createDate", date, metaObject);
-        this.setFieldValByName("createBy", updateBy, metaObject);
+        this.setFieldValByName("createBy", userId, metaObject);
         this.setFieldValByName("updateDate", date, metaObject);
-        this.setFieldValByName("updateBy", updateBy, metaObject);
+        this.setFieldValByName("updateBy", userId, metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         Date date = new Date(  );
         UserDO user = ShiroUtils.getUser();
-        String updateBy = user!=null?user.getName():"";
-        this.setFieldValByName("gmtModified", date, metaObject);
-
+        String userId = user!=null?user.getName():"";
+        // 更新时自动填充
         this.setFieldValByName("updateDate", date, metaObject);
-        this.setFieldValByName("updateBy", updateBy, metaObject);
+        this.setFieldValByName("updateBy", userId, metaObject);
     }
 }

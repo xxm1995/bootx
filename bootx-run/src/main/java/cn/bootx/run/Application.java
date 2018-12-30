@@ -1,7 +1,9 @@
 package cn.bootx.run;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 启动类
@@ -10,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version V1.0
  */
 @SpringBootApplication
+@MapperScan("cn.bootx.**.dao")
+@ComponentScan("cn.bootx")
 public class Application {
  public static void main(String[] args) {
   SpringApplication.run(Application.class, args);

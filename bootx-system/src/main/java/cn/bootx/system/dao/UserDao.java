@@ -1,6 +1,8 @@
 package cn.bootx.system.dao;
 
 
+import cn.bootx.common.domain.UserDO;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,8 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @version V1.0
  */
 @Mapper
-public interface UserDao {
-
-
+public interface UserDao extends BaseMapper<UserDO> {
 
 }

@@ -17,12 +17,12 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://127.0.01:3306/cs01?useUnicode=true&characterEncoding=utf8
-#    username: root
-#    password: root
-    url: jdbc:mysql://sql.7326it.club:53306/cb_cs?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.01:3306/bootx?useUnicode=true&characterEncoding=utf8
     username: root
-    password: 7326itcx
+    password: root
+#    url: jdbc:mysql://sql.7326it.club:53306/cb_cs?useUnicode=true&useOldAliasMetadataBehavior=true&characterEncoding=utf8
+#    username: root
+#    password: 7326itcx
     initialSize: 1
     minIdle: 3
     maxActive: 20

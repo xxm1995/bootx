@@ -2,8 +2,10 @@ package cn.bootx.security.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import cn.bootx.security.shiro.filter.ShiroLoginFilter;
+import cn.bootx.security.shiro.handler.BDSessionListener;
 import cn.bootx.security.shiro.handler.BootxModularRealmAuthenticator;
 import cn.bootx.security.shiro.realm.UserNmaeAndPassWordRealm;
+import cn.bootx.security.shiro.realm.WeiXinRealm;
 import cn.bootx.security.shiro.session.BootxSessionManager;
 import net.sf.ehcache.CacheManager;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
@@ -17,17 +19,22 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.*;
 
-//import org.apache.shiro.cache.CacheManager;
-
-/**
- * @author bootdo 1992lcg@163.com
- */
-//@Configuration
+/**   
+* shiro配置类
+* @author xxm  
+* @date 2018/12/30 16:56 
+* @version V1.0   
+*/
+//是否开启shiro
+@ConditionalOnProperty(prefix = "bootx.security",name = "shiro", havingValue = "ture")
+@Configuration
 public class ShiroConfig {
     @Value("${spring.redis.host}")
     private String host;
@@ -71,10 +78,10 @@ public class ShiroConfig {
      * 微信认证器
      * @return Realm
      */
-//    @Bean
-//    WxRealm wxRealm(){
-//        return new WxRealm();
-//    }
+    @Bean
+    WeiXinRealm weiXinRealm(){
+        return new WeiXinRealm();
+    }
 
 
     /**
@@ -144,7 +151,7 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         List<Realm> realms = new ArrayList<>(  );
-//        realms.add( wxRealm() );
+        realms.add( weiXinRealm() );
         realms.add( userRealm() );
         //设置securityManager 的 realm组.
         securityManager.setRealms( realms );

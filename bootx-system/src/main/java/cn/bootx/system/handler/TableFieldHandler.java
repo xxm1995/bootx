@@ -2,6 +2,7 @@ package cn.bootx.system.handler;
 
 import cn.bootx.common.domain.UserDO;
 import cn.bootx.security.shiro.utils.ShiroUtils;
+import cn.bootx.security.utils.SecurityUtils;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.Logger;
@@ -22,7 +23,7 @@ public class TableFieldHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         Date date = new Date(  );
-        UserDO user = ShiroUtils.getUser();
+        UserDO user = SecurityUtils.getUser();
         String userId = user!=null?user.getId():"";
         // 创建时自动填充
         this.setFieldValByName("createDate", date, metaObject);
@@ -35,7 +36,7 @@ public class TableFieldHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         Date date = new Date(  );
         UserDO user = ShiroUtils.getUser();
-        String userId = user!=null?user.getName():"";
+        String userId = user!=null?user.getId():"";
         // 更新时自动填充
         this.setFieldValByName("updateDate", date, metaObject);
         this.setFieldValByName("updateBy", userId, metaObject);

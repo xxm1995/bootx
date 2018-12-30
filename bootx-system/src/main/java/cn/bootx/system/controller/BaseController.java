@@ -1,13 +1,13 @@
 package cn.bootx.system.controller;
 
 import cn.bootx.common.domain.UserDO;
-import cn.bootx.security.shiro.utils.ShiroUtils;
+import cn.bootx.security.utils.SecurityUtils;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class BaseController {
 	public UserDO getUser() {
-		return ShiroUtils.getUser();
+		return SecurityUtils.getUser();
 	}
 
 	public String getUserId() {

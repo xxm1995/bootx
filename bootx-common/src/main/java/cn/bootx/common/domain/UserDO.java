@@ -1,10 +1,9 @@
 package cn.bootx.common.domain;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  *  用户表
@@ -14,7 +13,7 @@ import java.util.Date;
  */
 @Data
 @TableName("sys_user")
-public class UserDO implements Serializable {
+public class UserDO extends BaseBean {
     private static final long serialVersionUID = 1L;
     /** id */
     @TableId(type = IdType.ID_WORKER_STR)
@@ -22,7 +21,7 @@ public class UserDO implements Serializable {
     /** 账号名称 */
     private String username;
     /** 用户真实姓名 */
-    private String name;
+    private String realName;
     /** 密码 */
     private String password;
     /** 用户类别 */
@@ -31,18 +30,4 @@ public class UserDO implements Serializable {
     private String avatar;
     /** 状态 0:禁用，1:正常 */
     private Integer status;
-    /** 创建用户id */
-    @TableField( fill = FieldFill.INSERT)
-    private String userIdCreate;
-    /** 创建时间 */
-    @TableField( fill = FieldFill.INSERT)
-    private Date gmtCreate;
-    /** 修改时间 */
-    @TableField( fill = FieldFill.INSERT_UPDATE)
-    private Date gmtModified;
-    /** 删除标记 */
-    @TableLogic
-    private String delFlag;
-
-
 }

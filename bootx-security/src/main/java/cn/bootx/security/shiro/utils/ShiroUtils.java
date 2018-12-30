@@ -2,14 +2,15 @@ package cn.bootx.security.shiro.utils;
 
 import cn.bootx.common.domain.UserDO;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 
+/**   
+* shiro安全接口
+* @author xxm  
+* @date 2018/12/30 17:04 
+* @version V1.0   
+*/
 public class ShiroUtils {
-    @Autowired
-    private static SessionDAO sessionDAO;
-
     /**
      * 获取Subject
      * @return Subject

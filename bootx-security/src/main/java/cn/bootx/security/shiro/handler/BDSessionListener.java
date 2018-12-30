@@ -1,4 +1,4 @@
-package cn.bootx.security.shiro.config;
+package cn.bootx.security.shiro.handler;
 
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.SessionListener;

@@ -31,7 +31,12 @@ public class SecurityUtils {
     /**
      * 退出登录
      */
-    public static void logout() {
-        getSubjct().logout();
+    public static boolean logout() {
+       try {
+           getSubjct().logout();
+       }catch (Exception e){
+            return false;
+       }
+       return true;
     }
 }

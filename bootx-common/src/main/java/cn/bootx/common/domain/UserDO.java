@@ -18,12 +18,12 @@ public class UserDO extends BaseBean {
     /** id */
     @TableId(type = IdType.ID_WORKER_STR)
     private String id;
-    /** 账号名称 */
+    /** 账号 */
     private String username;
-    /** 用户真实姓名 */
-    private String realName;
     /** 密码 */
     private String password;
+    /** 真实姓名 */
+    private String realName;
     /** 用户类别 */
     private String userType;
     /** 用户头像 */

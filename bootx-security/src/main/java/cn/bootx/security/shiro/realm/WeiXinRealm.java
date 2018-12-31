@@ -2,15 +2,13 @@ package cn.bootx.security.shiro.realm;
 
 import cn.bootx.common.domain.UserDO;
 import cn.bootx.security.shiro.entity.WxToken;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+@Slf4j
 public class WeiXinRealm extends AuthorizingRealm {
-    private static final Logger logger = LoggerFactory.getLogger(WeiXinRealm.class);
     /**
      * 判断此Realm是否支持此Token
      *

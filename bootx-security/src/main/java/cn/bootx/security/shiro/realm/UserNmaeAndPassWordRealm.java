@@ -1,12 +1,11 @@
 package cn.bootx.security.shiro.realm;
 
 import cn.bootx.common.domain.UserDO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 账号密码验证
@@ -14,8 +13,8 @@ import org.slf4j.LoggerFactory;
  * @date 2018/11/21 16:29
  * @version V1.0
  */
+@Slf4j
 public class UserNmaeAndPassWordRealm extends AuthorizingRealm {
-	private static final Logger logger = LoggerFactory.getLogger(UserNmaeAndPassWordRealm.class);
 	/**
 	 * 判断此Realm是否支持此Token
 	 *

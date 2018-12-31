@@ -7,7 +7,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-
+/**   
+* 基础Bean
+* @author xxm  
+* @date 2018/12/31 13:38
+* @version V1.0   
+*/
 @Data
 public class BaseBean implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -19,36 +19,29 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.*;
 
-/**   
-* shiro配置类
+/**
+* shrio默认配置
 * @author xxm  
-* @date 2018/12/30 16:56 
+* @date 2018/12/31 16:00 
 * @version V1.0   
 */
-//是否开启shiro
-@ConditionalOnProperty(prefix = "bootx.security",name = "shiro", havingValue = "ture")
-@Configuration
-public class ShiroConfig {
-    @Value("${spring.redis.host}")
+public class ShiroDefaultConfig {
+    @Value("${spring.redis.host:}")
     private String host;
-    @Value("${spring.redis.password}")
+    @Value("${spring.redis.password:}")
     private String password;
-    @Value("${spring.redis.port}")
+    @Value("${spring.redis.port:}")
     private int port;
-    @Value("${spring.redis.timeout}")
+    @Value("${spring.redis.timeout:}")
     private int timeout;
-
-    @Value("${spring.cache.type}")
+    @Value("${spring.cache.type:}")
     private String cacheType ;
-
-    @Value("${server.session-timeout}")
+    @Value("${server.session-timeout:}")
     private int tomcatTimeout;
 
     @Bean

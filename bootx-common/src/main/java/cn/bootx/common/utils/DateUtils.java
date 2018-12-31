@@ -1,7 +1,6 @@
 package cn.bootx.common.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,8 +8,8 @@ import java.util.Date;
 /**
  * 日期处理
  */
+@Slf4j
 public class DateUtils {
-    private final static Logger logger = LoggerFactory.getLogger(DateUtils.class);
     /**
      * 时间格式(yyyy-MM-dd)
      */

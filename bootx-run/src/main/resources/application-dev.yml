@@ -3,16 +3,14 @@ logging:
     root: info
     com.bootdo: info
     com.cb: debug
-cb:
-  wx:
-    miniApps:
-      appid: wx045ee5b230da2f40
-      secret: aeb9e98223ab889a82542f319ee04eb1
-
-    pay:
-      appKey: tepusofttepusofttepusofttepusoft
-      mchId: 1409127202
-
+bootx:
+  weixin:
+    applet:
+      appid: hello
+      secret: 2
+  security:
+      shiro:
+        enable: false
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

@@ -11,7 +11,7 @@ public class JSONUtils {
 	/**
 	 * Bean对象转JSON
 	 * 
-	 * @param object
+	 * @param object 对象
 	 * @param dataFormatString
 	 * @return
 	 */
@@ -29,7 +29,7 @@ public class JSONUtils {
 	/**
 	 * Bean对象转JSON
 	 * 
-	 * @param object
+	 * @param object 对象
 	 * @return
 	 */
 	public static String beanToJson(Object object) {

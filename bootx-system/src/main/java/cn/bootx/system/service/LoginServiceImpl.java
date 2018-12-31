@@ -4,7 +4,7 @@ import cn.bootx.api.service.LoginService;
 import cn.bootx.common.domain.UserDO;
 import cn.bootx.common.exception.UserErrorException;
 import cn.bootx.common.exception.UserNotFoundException;
-import cn.bootx.common.utils.MD5Utils;
+import cn.bootx.common.utils.EncryptUtils;
 import cn.bootx.system.dao.UserDao;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -31,7 +31,7 @@ public class LoginServiceImpl extends ServiceImpl<UserDao, UserDO> implements Lo
         queryWrapper.eq("username", password);
         UserDO user = userDao.selectOne(queryWrapper);
         if (user != null) {
-            String s = MD5Utils.encrypt(user.getUsername(), user.getPassword());
+            String s = EncryptUtils.encrypt(user.getUsername(), user.getPassword());
             if (user.getPassword().equals(s)) {
                 return user;
             }else{

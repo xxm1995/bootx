@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
   * @date 2018/11/21 16:24
   * @version V1.0   
   */
-@Component()
+@Component
 @Scope("prototype")
 //@ConfigurationProperties("cb.wx.miniApps")
 public class WxToken implements AuthenticationToken {

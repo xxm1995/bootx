@@ -2,7 +2,7 @@ package cn.bootx.system.service;
 
 import cn.bootx.api.service.UserService;
 import cn.bootx.common.domain.UserDO;
-import cn.bootx.system.test.Application;
+import cn.bootx.system.main.TestApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = TestApplication.class)
 public class UserServiceImplTest {
     @Autowired
     private UserService userService;

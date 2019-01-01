@@ -19,6 +19,7 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 
 import javax.servlet.Filter;
@@ -30,18 +31,10 @@ import java.util.*;
 * @date 2018/12/31 16:00 
 * @version V1.0   
 */
-public class ShiroDefaultConfig {
-    @Value("${spring.redis.host:}")
-    private String host;
-    @Value("${spring.redis.password:}")
-    private String password;
-    @Value("${spring.redis.port:}")
-    private int port;
-    @Value("${spring.redis.timeout:}")
-    private int timeout;
-    @Value("${spring.cache.type:}")
-    private String cacheType ;
-    @Value("${server.session-timeout:}")
+//配置中开启选项时时shiro才生效
+@ConditionalOnProperty(prefix = "bootx.security.shiro",name = "enable", havingValue = "true")
+public abstract class ShiroDefaultConfig {
+    @Value("${server.session-timeout}")
     private int tomcatTimeout;
 
     @Bean

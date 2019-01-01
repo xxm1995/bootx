@@ -4,9 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.bootx</groupId>
     <artifactId>bootx</artifactId>
-
     <version>0.0.1</version>
-    /* 模块 */
+    <!-- 模块 -->
     <modules>
         <!--公共模块-->
         <module>bootx-common</module>
@@ -25,7 +24,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.1.1.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -34,6 +33,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <velocity.version>1.7</velocity.version>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
@@ -60,11 +60,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
-        <dependency>        
-            <groupId>org.springframework.boot</groupId>            
-            <artifactId>spring-boot-configuration-processor</artifactId>            
-            <optional>true</optional>            
+        <!-- 导入配置文件处理器，配置文件进行绑定就会有提示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
@@ -92,7 +92,7 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.10</version>
         </dependency>
-        <!--commons -->
+        <!--apache commons -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -111,13 +111,8 @@
         <!--shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.3.2</version>
+            <version>1.4.0</version>
         </dependency>
         <!-- shiro ehcache -->
         <dependency>
@@ -131,12 +126,13 @@
             </exclusions>
             <version>1.4.0</version>
         </dependency>
+        <!-- shiro 网页标签 -->
         <dependency>
             <groupId>com.github.theborakompanioni</groupId>
             <artifactId>thymeleaf-extras-shiro</artifactId>
             <version>2.0.0</version>
         </dependency>
-        <!-- utils -->
+        <!-- fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -157,7 +153,7 @@
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>
-
+        <!-- 定时任务 -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -266,57 +262,28 @@
             <artifactId>lombok</artifactId>
             <version>1.16.10</version>
         </dependency>
-        <!--war包部署需要-->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-web</artifactId>-->
-        <!--&lt;!&ndash; 移除嵌入式tomcat插件 &ndash;&gt;-->
-        <!--<exclusions>-->
-        <!--<exclusion>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--</exclusion>-->
-        <!--</exclusions>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>javax.servlet-api</artifactId>-->
-        <!--<version>3.1.0</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>
+            <!--spring boot插件-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <executable>true</executable>
+                    <!--主类的名称。如果未指定第一个发现编译后的类包含一个主要的方法将被使用。-->
+                    <mainClass>cn.bootx.run.Application</mainClass>
+                    <!--可执行jar文件名称后缀-->
+                    <classifier>run</classifier>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>public</id>-->
-    <!--<name>aliyun nexus</name>-->
-    <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
-    <!--<releases>-->
-    <!--<enabled>true</enabled>-->
-    <!--</releases>-->
-    <!--</repository>-->
-    <!--</repositories>-->
-    <!--<pluginRepositories>-->
-    <!--<pluginRepository>-->
-    <!--<id>public</id>-->
-    <!--<name>aliyun nexus</name>-->
-    <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
-    <!--<releases>-->
-    <!--<enabled>true</enabled>-->
-    <!--</releases>-->
-    <!--<snapshots>-->
-    <!--<enabled>false</enabled>-->
-    <!--</snapshots>-->
-    <!--</pluginRepository>-->
-    <!--</pluginRepositories>-->
+
 </project>

@@ -23,13 +23,10 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   profiles: 
     active: dev
-  servlet:
-    multipart:
-      max-file-size: 30Mb
-      max-request-size: 30Mb
-  devtools:
-    restart:
-      enabled: true
+#  servlet:
+#    multipart:
+#      max-file-size: 30Mb
+#      max-request-size: 30Mb
   cache:
     type: ehcache
     ehcache:

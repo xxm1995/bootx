@@ -24,4 +24,9 @@ public class Cs01 {
         System.out.println(userService.save(user));
         return "666";
     }
+    @RequestMapping("/test")
+    public String test(){
+
+        return "ok";
+    }
 }

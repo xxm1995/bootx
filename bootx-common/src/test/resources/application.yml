@@ -1,8 +1,8 @@
 spring:
   datasource:
     druid:
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.01:3306/bootx?useUnicode=true&characterEncoding=utf8
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/bootx?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
       username: root
       password: root
 mybatis-plus:

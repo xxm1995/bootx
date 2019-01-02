@@ -1,4 +1,4 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.utils;
 
 import lombok.extern.slf4j.Slf4j;
 

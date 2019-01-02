@@ -1,6 +1,6 @@
 package cn.bootx.security.shiro.session;
 
-import cn.bootx.common.utils.StringUtils;
+import cn.bootx.security.utils.StringUtils;
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.util.WebUtils;

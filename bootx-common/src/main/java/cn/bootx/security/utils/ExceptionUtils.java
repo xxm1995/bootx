@@ -1,4 +1,4 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.utils;
 
 public class ExceptionUtils {
     public static String getExceptionAllinformation(Exception ex) {

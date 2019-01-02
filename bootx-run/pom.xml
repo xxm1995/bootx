@@ -14,7 +14,6 @@
         <dependency>
             <groupId>cn.bootx</groupId>
             <artifactId>bootx-system</artifactId>
-            <version>0.0.1</version>
         </dependency>
     </dependencies>
 

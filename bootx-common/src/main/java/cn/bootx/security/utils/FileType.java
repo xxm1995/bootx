@@ -1,4 +1,4 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.utils;
 
 /* author：zss
  * 日期：2017年3月31日

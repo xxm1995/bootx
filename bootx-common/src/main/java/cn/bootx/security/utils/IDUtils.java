@@ -1,4 +1,4 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.utils;
 
 
 import cn.bootx.common.domain.IDDO;

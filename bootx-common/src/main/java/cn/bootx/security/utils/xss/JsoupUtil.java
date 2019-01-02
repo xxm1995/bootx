@@ -1,4 +1,4 @@
-package cn.bootx.common.utils.xss;
+package cn.bootx.security.utils.xss;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

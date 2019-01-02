@@ -1,4 +1,4 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

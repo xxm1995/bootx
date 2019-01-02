@@ -1,7 +1,5 @@
 package cn.bootx.common.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class LogDO {
@@ -20,7 +18,6 @@ public class LogDO {
 	private String params;
 
 	private String ip;
-	@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date gmtCreate;
 
 	public Long getId() {

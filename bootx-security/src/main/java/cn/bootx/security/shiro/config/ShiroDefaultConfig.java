@@ -7,9 +7,7 @@ import cn.bootx.security.shiro.handler.BootxModularRealmAuthenticator;
 import cn.bootx.security.shiro.realm.UserNmaeAndPassWordRealm;
 import cn.bootx.security.shiro.realm.WeiXinRealm;
 import cn.bootx.security.shiro.session.BootxSessionManager;
-import net.sf.ehcache.CacheManager;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.session.SessionListener;
@@ -18,7 +16,6 @@ import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSource
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 
@@ -34,8 +31,8 @@ import java.util.*;
 //配置中开启选项时时shiro才生效
 @ConditionalOnProperty(prefix = "bootx.security.shiro",name = "enable", havingValue = "true")
 public abstract class ShiroDefaultConfig {
-    @Value("${server.session-timeout}")
-    private int tomcatTimeout;
+//    @Value("${server.session-timeout:}")
+//    private int tomcatTimeout;
 
     @Bean
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
@@ -152,12 +149,6 @@ public abstract class ShiroDefaultConfig {
          */
         authenticator.setRealms( realms );
         securityManager.setAuthenticator( authenticator );
-        // 自定义缓存实现 使用redis
-//        if (Constant.CACHE_TYPE_REDIS.equals(cacheType)) {
-////            securityManager.setCacheManager(rediscacheManager());
-//        } else {
-            securityManager.setCacheManager(ehCacheManager());
-//        }
         return securityManager;
     }
 
@@ -168,7 +159,7 @@ public abstract class ShiroDefaultConfig {
     @Bean
     public DefaultWebSessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new BootxSessionManager();
-        sessionManager.setGlobalSessionTimeout(tomcatTimeout * 1000);
+//        sessionManager.setGlobalSessionTimeout(tomcatTimeout * 1000);
 //        sessionManager.setSessionDAO(sessionDAO());
         Collection<SessionListener> listeners = new ArrayList<SessionListener>();
         listeners.add(new BDSessionListener());
@@ -242,17 +233,7 @@ public abstract class ShiroDefaultConfig {
 
 
 
-    @Bean
-    public EhCacheManager ehCacheManager() {
-        EhCacheManager em = new EhCacheManager();
-        em.setCacheManager(cacheManager());
-        return em;
-    }
 
-    @Bean("cacheManager2")
-    CacheManager cacheManager(){
-        return CacheManager.create();
-    }
 
 
 }

@@ -3,7 +3,7 @@ package cn.bootx.system.service;
 import cn.bootx.api.service.UserService;
 import cn.bootx.common.domain.UserDO;
 import cn.bootx.common.exception.UserRepeatException;
-import cn.bootx.common.utils.EncryptUtils;
+import cn.bootx.security.shiro.utils.EncryptUtils;
 import cn.bootx.system.dao.UserDao;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

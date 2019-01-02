@@ -1,6 +1,6 @@
 package cn.bootx.system.filter;
 
-import cn.bootx.common.utils.xss.JsoupUtil;
+import cn.bootx.security.utils.xss.JsoupUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;

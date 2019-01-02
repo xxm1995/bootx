@@ -10,7 +10,7 @@ bootx:
       secret: 2
   security:
       shiro:
-        enable: false
+        enable: true
 spring:
   datasource:
     druid:

@@ -1,6 +1,6 @@
-package cn.bootx.common.utils;
+package cn.bootx.security.shiro.utils;
 
-import cn.bootx.common.main.TestApplication;
+import cn.bootx.security.main.TestApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

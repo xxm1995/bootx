@@ -15,9 +15,11 @@
             <groupId>cn.bootx</groupId>
             <artifactId>bootx-common</artifactId>
             <version>0.0.1</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-
 </project>

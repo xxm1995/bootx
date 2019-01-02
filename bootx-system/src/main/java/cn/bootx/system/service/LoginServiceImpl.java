@@ -4,7 +4,7 @@ import cn.bootx.api.service.LoginService;
 import cn.bootx.common.domain.UserDO;
 import cn.bootx.common.exception.UserErrorException;
 import cn.bootx.common.exception.UserNotFoundException;
-import cn.bootx.common.utils.EncryptUtils;
+import cn.bootx.security.shiro.utils.EncryptUtils;
 import cn.bootx.system.dao.UserDao;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

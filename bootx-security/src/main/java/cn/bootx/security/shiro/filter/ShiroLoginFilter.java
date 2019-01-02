@@ -2,7 +2,7 @@ package cn.bootx.security.shiro.filter;
 
 import cn.bootx.common.constant.ConstantCodePool;
 import cn.bootx.common.page.R;
-import cn.bootx.common.utils.HttpServletUtils;
+import cn.bootx.security.utils.HttpServletUtils;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
